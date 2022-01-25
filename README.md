@@ -23,14 +23,14 @@ will be used as the _payload_ for the action creator you are about to create.
 Define and export an action creator function called `loadArticles`. It should
 have a `type` key with a constant variable value of `LOAD_ARTICLES`. (Before
 your action creator, declare your `LOAD_ARTICLES` constant variable and assign
-it the string `article/loadArticles`.) The `loadArticles` action creator should
+it the string `'article/loadArticles'`.) The `loadArticles` action creator should
 also have a payload of the articles that were imported. You can put the payload
 under the key `articles`.
 
 If you have done this correctly your code will look similar to this:
 
 ```js
-import articles from `../data/data.json`
+import articles from `../data/data.json`;
 
 const LOAD_ARTICLES = 'article/loadArticles';
 
@@ -88,19 +88,19 @@ of `articleReducer`
 To test if your reducer is working, go to your root __index.js__ and
 
 1. Import the `loadActions` action creator from __./store/articleReducer.js__
-    - *Remember that named exports need to be wrapped in { } when importing.*
+    - *Remember: named exports need to be wrapped in { } when being imported.*
 2. Add this code beneath your `store` variable:
 
 ```js
-  window.store = store;
-  window.loadActions = loadActions;
+window.store = store;
+window.loadActions = loadActions;
 ```
 
-Then open the `Console` tab in the DevTools of your sandbox browser and type
-this code:
+In your sandbox browser, click the button to `Open In New Window`. In the
+`Console` tab of the DevTools in this new window, type the following code:
 
 ```js
-  store.dispatch(loadArticles());
+store.dispatch(loadArticles());
 ```
 
 If all is working correctly, you should see the `redux-logger` data in the
