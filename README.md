@@ -55,7 +55,7 @@ The object should also hold another key, `isLoading`, with a boolean value of
 Create an `articleReducer` function. Every reducer function takes two arguments,
 `state` and `action`. Inside the `reducer` function, create a `switch`/`case`
 statement that switches based on an action's type. The first action type it
-should check for is `LOAD_ARTICLES`. If `action.type` is `loadArticles`, it
+should check for is `LOAD_ARTICLES`. If `action.type` is `LOAD_ARTICLES`, it
 should return a new **copy** of the `state` object and update the `entries`
 array with the `articles` payload from the `loadArticles` action creator. Be
 sure not to mutate the original state! As the `default` case, simply return the
@@ -82,15 +82,15 @@ export default articleReducer;
 ## Connect the reducer to Redux
 
 In the root __index.js__ file of your __store__ directory, import the
-article reducer using the variable name `articleReducer`. Now, add this reducer
-to the `combineReducers` function, giving it a key of `articleState` and a value
-of `articleReducer`
+`articleReducer` reducer using the variable name `articleReducer`. Now, add this
+reducer to the `combineReducers` function, giving it a key of `articleState` and
+a value of `articleReducer`
 
 ## Test on the Window
 
 To test if your reducer is working, go to your root __index.js__ and
 
-1. Import the `loadActions` action creator from __./store/articleReducer.js__
+1. Import the `loadArticles` action creator from __./store/articleReducer.js__
     - *Remember: named exports need to be wrapped in { } when being imported.*
 2. Add this code beneath your `store` variable:
 
@@ -101,7 +101,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 ```
 
-This will put the `store` and `loadActions` "on the window", effectively making
+This will put the `store` and `loadArticles` "on the window", effectively making
 them global variables that you can access from your browser's console (or
 anywhere else in your application). While this can be very useful when
 debugging, it can also create issues if you end up accidentally--i.e., without
