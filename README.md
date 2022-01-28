@@ -7,10 +7,13 @@ global state (or not) based on the _action type_. You will connect the reducer
 to the store and test your action creator using the `window` object in the
 browser DevTools.
 
-## Setup
+## Set up
 
-Click the `Download Project` button at the bottom of this page to go to the
-starter repo, then load the repo into [CodeSandbox].
+Clone the starter repo accessible from the `Download Project` button at the
+bottom of this page and `cd` into the root directory.
+
+1. Run `npm install` to load all the dependencies.
+2. Run `npm start` to start the server and load your app at `localhost:3000`.
 
 ## Action Creator
 
@@ -23,9 +26,9 @@ will be used as the _payload_ for the action creator you are about to create.
 Define and export an action creator function called `loadArticles`. It should
 have a `type` key with a constant variable value of `LOAD_ARTICLES`. (Before
 your action creator, declare your `LOAD_ARTICLES` constant variable and assign
-it the string `'article/loadArticles'`.) The `loadArticles` action creator should
-also have a payload of the articles that were imported. You can put the payload
-under the key `articles`.
+it the string `'article/loadArticles'`.) The `loadArticles` action creator
+should also have a payload of the articles that were imported. You can put the
+payload under the key `articles`.
 
 If you have done this correctly your code will look similar to this:
 
@@ -79,7 +82,7 @@ export default articleReducer;
 ## Connect the reducer to Redux
 
 In the root __index.js__ file of your __store__ directory, import the
-articleReducer using the variable name `articleReducer`. Now, add this reducer
+article reducer using the variable name `articleReducer`. Now, add this reducer
 to the `combineReducers` function, giving it a key of `articleState` and a value
 of `articleReducer`
 
@@ -92,15 +95,25 @@ To test if your reducer is working, go to your root __index.js__ and
 2. Add this code beneath your `store` variable:
 
 ```js
-window.store = store;
-window.loadActions = loadActions;
+if (process.env.NODE_ENV !== 'production') {
+  window.store = store;
+  window.loadArticles = loadArticles;
+}
 ```
 
-In your sandbox browser, click the button to `Open In New Window`. In the
-`Console` tab of the DevTools in this new window, type the following code:
+This will put the `store` and `loadActions` "on the window", effectively making
+them global variables that you can access from your browser's console (or
+anywhere else in your application). While this can be very useful when
+debugging, it can also create issues if you end up accidentally--i.e., without
+realizing it--accessing things on the window in other files. So it is generally
+a good idea to take things off the window once you are done testing them. In
+particular you **NEVER** want to leave things on the window in production, hence
+the conditional wrapping.
+
+In your browser's console type the following code:
 
 ```js
-store.dispatch(loadArticles());
+store.dispatch(loadArticles())
 ```
 
 If all is working correctly, you should see the `redux-logger` data in the
@@ -118,8 +131,5 @@ array.
 2. Create a `reducer`
 3. Test an `action creator` on the window of the browser using `redux-logger`
 
-[CodeSandbox]: https://codesandbox.io
-[action-creator]: https://redux.js.org/usage/reducing-boilerplate
 [reducer]: https://redux.js.org/usage/structuring-reducers/basic-reducer-structure
 [redux-logger]: https://appacademy-open-assets.s3.us-west-1.amazonaws.com/Modular-Curriculum/content/react-redux/topics/redux/assets/redux-logger-articles.png
-[code-sandbox]:http://www.codesandbox.io
