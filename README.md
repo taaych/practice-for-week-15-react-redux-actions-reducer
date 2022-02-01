@@ -7,7 +7,7 @@ global state (or not) based on the _action type_. You will connect the reducer
 to the store and test your action creator using the `window` object in the
 browser DevTools.
 
-## Set up
+## Setup
 
 Clone the starter repo accessible from the `Download Project` button at the
 bottom of this page and `cd` into the root directory.
