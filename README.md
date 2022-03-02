@@ -9,11 +9,14 @@ browser DevTools.
 
 ## Setup
 
-Clone the starter repo accessible from the `Download Project` button at the
-bottom of this page and `cd` into the root directory.
+Click the `Download Project` button at the bottom of this page to go to the
+starter repo, then load the repo into [CodeSandbox].
 
-1. Run `npm install` to load all the dependencies.
-2. Run `npm start` to start the server and load your app at `localhost:3000`.
+You should also add the Redux DevTools to your browser extensions if you have
+not done so already. To add the extension in Chrome, go
+[here][add-ReduxDevTools]. For other browsers, search in your extension/add-on
+menu for Redux DevTools and follow the instructions for adding it to your
+browser.
 
 ## Action Creator
 
@@ -84,7 +87,7 @@ export default articleReducer;
 In the root __index.js__ file of your __store__ directory, import the
 `articleReducer` reducer using the variable name `articleReducer`. Now, add this
 reducer to the `combineReducers` function, giving it a key of `articleState` and
-a value of `articleReducer`
+a value of `articleReducer`.
 
 ## Test on the Window
 
@@ -110,7 +113,8 @@ a good idea to take things off the window once you are done testing them. In
 particular you **NEVER** want to leave things on the window in production, hence
 the conditional wrapping.
 
-In your browser's console type the following code:
+In your sandbox browser, click the button to `Open In New Window`. In the
+`Console` tab of the DevTools in this new window, type the following code:
 
 ```js
 store.dispatch(loadArticles())
@@ -131,5 +135,7 @@ array.
 2. Create a `reducer`
 3. Test an `action creator` on the window of the browser using `redux-logger`
 
+[CodeSandbox]: https://codesandbox.io
+[add-ReduxDevTools]: https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en
 [reducer]: https://redux.js.org/usage/structuring-reducers/basic-reducer-structure
 [redux-logger]: https://appacademy-open-assets.s3.us-west-1.amazonaws.com/Modular-Curriculum/content/react-redux/topics/redux/assets/redux-logger-articles.png
