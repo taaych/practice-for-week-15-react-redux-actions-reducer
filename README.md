@@ -36,7 +36,7 @@ payload under the key `articles`.
 If you have done this correctly your code will look similar to this:
 
 ```js
-import articles from `../data/data.json`;
+import articles from '../data/data.json';
 
 const LOAD_ARTICLES = 'article/loadArticles';
 
