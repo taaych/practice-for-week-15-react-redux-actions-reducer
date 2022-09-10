@@ -1,11 +1,10 @@
 # Practice: Action Creator and Reducer Setup
 
 In this short practice, you will load an array of articles into Redux state. You
-will then create an [action creator][action-creator] and a [reducer]. When the
-_action creator_ sends an action to the _reducer_, the reducer will update the
-global state (or not) based on the _action type_. You will connect the reducer
-to the store and test your action creator using the `window` object in the
-browser DevTools.
+will then create an [action creator] and a [reducer]. When the _action creator_
+sends an action to the _reducer_, the reducer will update the global state (or
+not) based on the _action type_. You will connect the reducer to the store and
+test your action creator using the `window` object in the browser DevTools.
 
 ## Setup
 
@@ -136,6 +135,7 @@ array.
 3. Test an `action creator` on the window of the browser using `redux-logger`
 
 [CodeSandbox]: https://codesandbox.io
+[action creator]: https://redux.js.org/usage/reducing-boilerplate#action-creators
 [add-ReduxDevTools]: https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en
 [reducer]: https://redux.js.org/usage/structuring-reducers/basic-reducer-structure
 [redux-logger]: https://appacademy-open-assets.s3.us-west-1.amazonaws.com/Modular-Curriculum/content/react-redux/topics/redux/assets/redux-logger-articles.png
